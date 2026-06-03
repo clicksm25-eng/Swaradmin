@@ -14,7 +14,7 @@ export async function getNonce(): Promise<string> {
   return cachedNonce!;
 }
 
-export async function getBookings(): Promise<Booking[]> {
+export async function getBookings(retried = false): Promise<Booking[]> {
   const nonce = await getNonce();
   const form = new FormData();
   form.append('action', 'sewar_get_bookings');
@@ -23,9 +23,10 @@ export async function getBookings(): Promise<Booking[]> {
   if (res.data?.success) {
     return res.data.data?.bookings || [];
   }
-  if (typeof res.data?.data === 'string' && res.data.data.includes('nonce')) {
+  // Any failure → invalidate nonce and retry once
+  if (!retried) {
     cachedNonce = null;
-    return getBookings();
+    return getBookings(true);
   }
   throw new Error('فشل تحميل الحجوزات');
 }
