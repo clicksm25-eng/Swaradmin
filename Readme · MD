@@ -1,0 +1,157 @@
+# 🌊 سوار البحر — لوحة تحكم الإدارة
+
+<div align="center">
+
+![Sewar Marine](https://sewarmarine.com/wp-content/uploads/2026/03/شعار-سوار-أبيض.png)
+
+**لوحة تحكم متكاملة لإدارة رحلات سوار البحر في مرسى ثول، البحر الأحمر**
+
+[![Website](https://img.shields.io/badge/Website-sewarmarine.com-0077B6?style=for-the-badge&logo=google-chrome)](https://sewarmarine.com/ar/)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-966500045946-25D366?style=for-the-badge&logo=whatsapp)](https://api.whatsapp.com/send/?phone=966500045946)
+[![Instagram](https://img.shields.io/badge/Instagram-sewarmarine-E4405F?style=for-the-badge&logo=instagram)](https://www.instagram.com/sewarmarine/)
+
+</div>
+
+---
+
+## 📌 نظرة عامة
+
+لوحة تحكم داخلية لإدارة عمليات شركة **سوار البحر** — متخصصة في الرحلات البحرية الفاخرة بالبحر الأحمر، مرسى ثول، المملكة العربية السعودية.
+
+تتيح هذه اللوحة للإدارة متابعة الحجوزات، تتبع الإيرادات، إدارة الأنشطة، والتواصل مع العملاء من مكان واحد.
+
+---
+
+## ✨ الميزات المخططة
+
+### 📅 إدارة الحجوزات
+- عرض جميع الحجوزات (قادمة / مكتملة / ملغاة)
+- إضافة حجز يدوي أو عبر نموذج
+- ربط الحجز بنوع الرحلة والتوقيت
+
+### 🚢 إدارة الأنشطة
+| النشاط | السعر |
+|--------|-------|
+| 🍸 نزهة بحرية فاخرة | 1,200 ريال |
+| 🎣 رحلة صيد | 1,400 ريال |
+| 🕐 رحلة ساعة | 250 ريال |
+| 🎉 حفلة على البحر | 600 ريال |
+| 🐬 سنوركلينج | 900 ريال |
+| 👑 باقة VIP | 3,800 ريال |
+
+### 💰 المالية والإيرادات
+- متابعة الإيرادات اليومية / الأسبوعية / الشهرية
+- تسجيل المدفوعات (تحويل بنكي / كاش)
+- رقم حساب الراجحي: `SA4180000993608016031469`
+
+### 📊 الإحصائيات والتحليل
+- **12** سنة خبرة
+- **97%** رضا العملاء
+- **8,000+** رحلة مكتملة
+- **19,000+** مسافر سعيد
+
+### 👥 إدارة العملاء
+- قاعدة بيانات العملاء
+- سجل رحلات كل عميل
+- إشعارات وتذكيرات واتساب
+
+### 📱 التقارير
+- تقارير قابلة للتصدير (PDF / Excel)
+- مقارنة الأداء بين الأنشطة
+- أوقات الذروة والأوقات الهادئة
+
+---
+
+## 🛠️ التقنيات المستخدمة
+
+```
+Frontend:   React.js / Next.js
+Styling:    Tailwind CSS
+Charts:     Recharts / Chart.js
+Backend:    Node.js / Express  (أو Firebase / Supabase)
+Database:   PostgreSQL / MongoDB
+Auth:       JWT / NextAuth
+```
+
+> ⚠️ هذا القسم يُحدَّث حسب التقنيات الفعلية المختارة للمشروع.
+
+---
+
+## 🚀 تشغيل المشروع محلياً
+
+```bash
+# 1. استنسخ المشروع
+git clone https://github.com/your-username/sewarmarine-dashboard.git
+
+# 2. ادخل على المجلد
+cd sewarmarine-dashboard
+
+# 3. ثبّت المكتبات
+npm install
+
+# 4. انسخ ملف البيئة
+cp .env.example .env.local
+
+# 5. شغّل بيئة التطوير
+npm run dev
+```
+
+ثم افتح المتصفح على: `http://localhost:3000`
+
+---
+
+## 📁 هيكل المجلدات
+
+```
+sewarmarine-dashboard/
+├── app/                    # صفحات التطبيق (Next.js App Router)
+│   ├── dashboard/          # الصفحة الرئيسية للوحة
+│   ├── bookings/           # إدارة الحجوزات
+│   ├── activities/         # الأنشطة والأسعار
+│   ├── clients/            # قاعدة العملاء
+│   └── reports/            # التقارير والتحليلات
+├── components/             # مكونات واجهة المستخدم
+├── lib/                    # دوال مساعدة وإعدادات
+├── public/                 # الملفات الثابتة
+└── README.md
+```
+
+---
+
+## 🌐 معلومات الشركة
+
+| | |
+|---|---|
+| 🏢 الاسم | مؤسسة سوار البحر للتجارة |
+| 📍 الموقع | مرسى ثول، 23953، المملكة العربية السعودية |
+| 📞 الهاتف | [+966 50 004 5946](tel:+966500045946) |
+| 📧 البريد | sewarmarine@gmail.com |
+| 🌍 الموقع الإلكتروني | [sewarmarine.com](https://sewarmarine.com/ar/) |
+
+### وسائل التواصل الاجتماعي
+[![Facebook](https://img.shields.io/badge/Facebook-sewarmarine-1877F2?logo=facebook)](http://ww.facebook.com/sewarmarine)
+[![Snapchat](https://img.shields.io/badge/Snapchat-sewarmarine-FFFC00?logo=snapchat&logoColor=black)](https://www.snapchat.com/add/sewarmarine)
+[![TikTok](https://img.shields.io/badge/TikTok-sewarmarine-000000?logo=tiktok)](https://www.tiktok.com/@sewarmarine)
+[![YouTube](https://img.shields.io/badge/YouTube-sewarmarine-FF0000?logo=youtube)](https://www.youtube.com/channel/UChaJgm8jFYUNGrtm7L2jP3Q)
+[![Telegram](https://img.shields.io/badge/Telegram-sewarmarine-2CA5E0?logo=telegram)](https://t.me/sewarmarine)
+
+---
+
+## 🗺️ خارطة الطريق
+
+- [ ] 🏗️ إعداد المشروع وهيكل قاعدة البيانات
+- [ ] 🔐 نظام تسجيل الدخول والصلاحيات
+- [ ] 📅 صفحة الحجوزات
+- [ ] 💰 صفحة الإيرادات والمالية
+- [ ] 📊 لوحة الإحصائيات الرئيسية
+- [ ] 📱 دعم الجوال (Responsive)
+- [ ] 🔔 إشعارات واتساب تلقائية
+- [ ] 📤 تصدير التقارير
+
+---
+
+<div align="center">
+
+صُنع بـ ❤️ لفريق **سوار البحر** 🌊⚓
+
+</div>
