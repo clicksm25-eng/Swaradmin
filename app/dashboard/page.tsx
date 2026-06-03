@@ -30,10 +30,10 @@ export default function DashboardPage() {
   const lastUpdated = new Date();
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen overflow-hidden">
       <Sidebar pendingCount={pending} lastUpdated={lastUpdated} />
 
-      <main className="flex-1 lg:mr-64 p-4 lg:p-8 pt-20 lg:pt-8">
+      <main className="flex-1 lg:mr-64 p-4 lg:p-8 pt-20 lg:pt-8 min-w-0 overflow-x-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>

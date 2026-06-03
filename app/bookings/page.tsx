@@ -63,9 +63,9 @@ export default function BookingsPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen overflow-hidden">
       <Sidebar pendingCount={pending} lastUpdated={lastUpdated} />
-      <main className="flex-1 lg:mr-64 p-4 lg:p-8 pt-20 lg:pt-8">
+      <main className="flex-1 lg:mr-64 p-4 lg:p-8 pt-20 lg:pt-8 min-w-0 overflow-x-hidden">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-white font-bold text-2xl lg:text-3xl">الحجوزات</h1>
