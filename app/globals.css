@@ -15,10 +15,12 @@
   font-family: 'Tajawal', sans-serif;
 }
 
-body {
+html, body {
   background-color: #0D1B2A;
   color: #e2e8f0;
   direction: rtl;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 ::-webkit-scrollbar {

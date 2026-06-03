@@ -73,9 +73,9 @@ const packages = [
 
 export default function ActivitiesPage() {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 lg:mr-64 p-4 lg:p-8 pt-20 lg:pt-8">
+      <main className="flex-1 lg:mr-64 p-4 lg:p-8 pt-20 lg:pt-8 min-w-0 overflow-x-hidden">
         <div className="mb-8">
           <h1 className="text-white font-bold text-2xl lg:text-3xl">الأنشطة والأسعار</h1>
           <p className="text-slate-400 mt-1">قائمة باقات سوار البحر</p>
