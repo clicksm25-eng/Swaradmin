@@ -6,10 +6,11 @@ import { Booking } from "@/lib/types";
 import Sidebar from "@/components/layout/sidebar";
 import StatusBadge from "@/components/ui/status-badge";
 import BookingEditDrawer from "@/components/ui/booking-edit-drawer";
+import BookingCreateDrawer from "@/components/ui/booking-create-drawer";
 import { toast } from "sonner";
 import {
   Search, Loader2, RefreshCw, AlertCircle,
-  Pencil, CheckCircle, XCircle, Flag,
+  Pencil, CheckCircle, XCircle, Flag, Plus,
   CalendarDays, Users, Clock
 } from "lucide-react";
 
@@ -36,6 +37,7 @@ export default function BookingsPage() {
   const [dateTo, setDateTo]     = useState("");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
   const [editBooking, setEditBooking] = useState<Booking | null>(null);
+  const [createOpen, setCreateOpen] = useState(false);
 
   const pending   = bookings.filter((b) => b.status === "pending").length;
   const confirmed = bookings.filter((b) => b.status === "confirmed").length;
@@ -92,14 +94,24 @@ export default function BookingsPage() {
                 حجز مسجل
               </p>
             </div>
-            <button
-              onClick={() => mutate()}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all text-white"
-              style={{ background: "linear-gradient(135deg, #0077B6, #005f92)" }}
-            >
-              <RefreshCw size={15} />
-              تحديث
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCreateOpen(true)}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all text-black shadow-lg"
+                style={{ background: "linear-gradient(135deg, #F4A400, #c98800)" }}
+              >
+                <Plus size={16} />
+                حجز جديد
+              </button>
+              <button
+                onClick={() => mutate()}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all text-white"
+                style={{ background: "linear-gradient(135deg, #0077B6, #005f92)" }}
+              >
+                <RefreshCw size={15} />
+                تحديث
+              </button>
+            </div>
           </div>
 
           {/* Mini stats */}
@@ -346,6 +358,13 @@ export default function BookingsPage() {
           onSaved={() => mutate()}
         />
       )}
+
+      {/* Create Drawer */}
+      <BookingCreateDrawer
+        open={createOpen}
+        onClose={() => setCreateOpen(false)}
+        onCreated={() => mutate()}
+      />
     </div>
   );
 }
