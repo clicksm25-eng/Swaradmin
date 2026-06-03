@@ -46,3 +46,25 @@ export async function updateStatus(bookingId: string, status: string): Promise<v
     throw new Error('فشل تحديث الحالة');
   }
 }
+
+export async function updateBooking(
+  bookingId: string,
+  fields: Partial<Pick<Booking, 'name' | 'phone' | 'date' | 'persons' | 'notes' | 'status'>>
+): Promise<void> {
+  const nonce = await getNonce();
+  const form = new FormData();
+  form.append('action', 'sewar_update_booking');
+  form.append('nonce', nonce);
+  form.append('booking_id', bookingId);
+  Object.entries(fields).forEach(([k, v]) => {
+    if (v !== undefined) form.append(k, String(v));
+  });
+  const res = await axios.post(AJAX_URL, form);
+  if (!res.data?.success) {
+    if (typeof res.data?.data === 'string' && res.data.data.includes('nonce')) {
+      cachedNonce = null;
+      return updateBooking(bookingId, fields);
+    }
+    throw new Error('فشل تحديث بيانات الحجز');
+  }
+}
