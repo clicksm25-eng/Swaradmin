@@ -47,6 +47,37 @@ export async function updateStatus(bookingId: string, status: string): Promise<v
   }
 }
 
+export interface NewBookingInput {
+  name: string;
+  phone: string;
+  date: string;
+  persons: string;
+  package: string;
+  total: string;
+  deposit: string;
+  pay_type: string;
+  notes?: string;
+  status?: string;
+}
+
+export async function createBooking(input: NewBookingInput): Promise<void> {
+  const nonce = await getNonce();
+  const form = new FormData();
+  form.append('action', 'sewar_create_booking');
+  form.append('nonce', nonce);
+  Object.entries(input).forEach(([k, v]) => {
+    if (v !== undefined) form.append(k, String(v));
+  });
+  const res = await axios.post(AJAX_URL, form);
+  if (!res.data?.success) {
+    if (typeof res.data?.data === 'string' && res.data.data.includes('nonce')) {
+      cachedNonce = null;
+      return createBooking(input);
+    }
+    throw new Error('فشل إنشاء الحجز');
+  }
+}
+
 export async function updateBooking(
   bookingId: string,
   fields: Partial<Pick<Booking, 'name' | 'phone' | 'date' | 'persons' | 'notes' | 'status'>>
