@@ -9,11 +9,12 @@ const packages = [
     color: "from-blue-600/20 to-cyan-600/10 border-blue-500/30",
     items: [
       { label: "💧 السعر الأساسي", value: "1,200 ريال", note: "5 أشخاص · 4 ساعات + مشروبات + كاياك" },
+      { label: "👤 شخص إضافي (فوق 5)", value: "+100 ريال", note: "" },
     ],
     extras: [
       "⏱️ ساعة إضافية: +100 ريال",
-      "🍉 سناك وفواكه: +350 ريال",
-      "🎣 صيد + عدة صيد + طُعم: +500 ريال",
+      "🍉 سناك وفواكه: +250 ريال",
+      "🎣 صيد + عدة صيد + طُعم: +250 ريال",
       "📸 تصوير احترافي: +500 ريال",
       "🌙 نهاية الأسبوع: +100 ريال",
     ],
@@ -27,6 +28,11 @@ const packages = [
       { label: "🕕 6 ساعات",  value: "1,400 ريال", note: "حتى 5 أشخاص" },
       { label: "🕗 8 ساعات",  value: "1,600 ريال", note: "حتى 5 أشخاص" },
       { label: "🕙 10 ساعات", value: "1,900 ريال", note: "حتى 5 أشخاص" },
+      { label: "🕛 12 ساعة",  value: "2,200 ريال", note: "حتى 5 أشخاص" },
+      { label: "👤 شخص إضافي (فوق 5)", value: "+100 ريال", note: "" },
+    ],
+    extras: [
+      "⏱️ ساعة إضافية (بعد 12 ساعة): +100 ريال",
     ],
     includes: ["❄️ مياه شرب وثلج", "🐟 طُعم للصيد", "🎣 عدة الصيد كاملة", "📦 حافظة للسمك", "☕ ضيافة شاهي وقهوة"],
   },
@@ -60,9 +66,9 @@ const packages = [
     subtitle: "شاهد الدلافين في البحر الأحمر · 4 ساعات",
     color: "from-teal-600/20 to-cyan-600/10 border-teal-500/30",
     items: [
-      { label: "🌅 الرحلة الصباحية",   value: "900 ريال",  note: "6:00 ص — 10:00 ص · حتى 5 أشخاص" },
-      { label: "🌇 رحلة وقت الغروب", value: "900 ريال",  note: "2:00 م — 6:00 م · حتى 5 أشخاص" },
-      { label: "👤 شخص إضافي (فوق 5)", value: "+50 ريال", note: "" },
+      { label: "🌅 الرحلة الصباحية",      value: "900 ريال", note: "6:00 ص — 10:00 ص · حتى 5 أشخاص" },
+      { label: "🌇 رحلة وقت الغروب",    value: "900 ريال", note: "2:00 م — 6:00 م · حتى 5 أشخاص" },
+      { label: "👤 شخص إضافي (فوق 5)", value: "+50 ريال",  note: "" },
     ],
     includes: ["🐬 مشاهدة الدلافين", "🕐 4 ساعات كاملة", "❄️ مياه شرب وثلج", "🍹 مشروبات متنوعة", "🛟 أدوات السلامة كاملة", "📍 مرشد بحري متخصص"],
   },
@@ -72,7 +78,7 @@ const packages = [
     subtitle: "صيد احترافي + طبخ مباشر + ضيافة فاخرة · 8 ساعات · بحر ثول",
     color: "from-yellow-600/20 to-amber-600/10 border-yellow-500/30",
     items: [
-      { label: "👑 الباقة الملكية VIP", value: "3,800 ريال", note: "5 أشخاص · 8 ساعات" },
+      { label: "👑 الباقة الملكية VIP",   value: "3,800 ريال", note: "5 أشخاص · 8 ساعات" },
       { label: "👤 شخص إضافي (فوق 5)",  value: "+100 ريال",  note: "" },
     ],
     includes: [
@@ -82,6 +88,9 @@ const packages = [
     ],
   },
 ];
+
+// ── custom note for fishing ──
+const FISHING_NOTE = "💡 تقدر تزيد الساعات أو عدد الأفراد — تواصل معنا لتخصيص رحلتك";
 
 export default function ActivitiesPage() {
   return (
@@ -122,6 +131,14 @@ export default function ActivitiesPage() {
                   </div>
                 ))}
               </div>
+
+              {/* Custom note for fishing */}
+              {pkg.emoji === "🎣" && (
+                <div className="mt-3 px-3 py-2 rounded-xl text-xs text-[#0EA5E9]"
+                  style={{ background: "rgba(14,165,233,0.08)", border: "1px solid rgba(14,165,233,0.2)" }}>
+                  {FISHING_NOTE}
+                </div>
+              )}
 
               {/* Includes */}
               {pkg.includes && (
